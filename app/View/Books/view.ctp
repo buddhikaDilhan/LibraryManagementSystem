@@ -2,7 +2,7 @@
 <h2><?php echo __('Book'); ?></h2>
 	<dl>
 		<dt><?php 
-                echo (json_encode($book));
+               // echo (json_encode($book));
                 echo __('Item Id'); ?></dt>
 		<dd>
 			<?php echo h($book['Book']['item_id']); ?>

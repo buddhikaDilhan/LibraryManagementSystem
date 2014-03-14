@@ -12,6 +12,7 @@ class Student extends AppModel {
  *
  * @var string
  */
+        var $name = 'student';
 	public $primaryKey = 'student_index';
 
 /**
@@ -30,39 +31,27 @@ class Student extends AppModel {
 		'student_index' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'student id should be numeric',
+				
 			),
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'cannot be empty',
+				
 			),
 		),
 		'batch' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'include the batch here',
+			
 			),
 		),
 		'registered_date' => array(
 			'date' => array(
 				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'message' => 'date is incorrect ',
+				
 			),
 		),
 	);
@@ -74,13 +63,11 @@ class Student extends AppModel {
  *
  * @var array
  */
-	public $hasOne = array(
+	public $belongsto = array(
 		'Member' => array(
 			'className' => 'Member',
-			'foreignKey' => 'member_index',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+			'foreignKey' => 'student_index',
+			
 		)
 	);
 }

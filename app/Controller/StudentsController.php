@@ -37,6 +37,7 @@ class StudentsController extends AppController {
 		if (!$this->Student->exists($id)) {
 			throw new NotFoundException(__('Invalid student'));
 		}
+                $this->Student->recursive=1;
 		$options = array('conditions' => array('Student.' . $this->Student->primaryKey => $id));
 		$this->set('student', $this->Student->find('first', $options));
 	}

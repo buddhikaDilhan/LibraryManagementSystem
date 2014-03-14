@@ -1,9 +1,13 @@
 <div class="students view">
 <h2><?php echo __('Student'); ?></h2>
 	<dl>
-		<dt><?php echo __('Student Index'); ?></dt>
+		<dt><?php 
+                echo (json_encode($student));
+                echo __('Student Index'); ?></dt>
 		<dd>
-			<?php echo h($student['Student']['student_index']); ?>
+			<?php 
+                        echo h($student['Student']['student_index']); 
+                        ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Batch'); ?></dt>
@@ -35,7 +39,9 @@
 	</ul>
 </div>
 	<div class="related">
-		<h3><?php echo __('Related Members'); ?></h3>
+		<h3><?php
+                
+                echo __('Related Members'); ?></h3>
 	<?php if (!empty($student['Member'])): ?>
 		<dl>
 			<dt><?php echo __('Member Index'); ?></dt>

@@ -3,7 +3,8 @@
 	<fieldset>
 		<legend><?php echo __('Add Student'); ?></legend>
 	<?php
-		echo $this->Form->input('batch');
+		echo $this->Form->input('student_index',array('type' => 'int'));
+                echo $this->Form->input('batch');
 		echo $this->Form->input('total_fine');
 		echo $this->Form->input('registered_date');
 	?>

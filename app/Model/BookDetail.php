@@ -61,7 +61,7 @@ class BookDetail extends AppModel {
         public $hasOne = array(
 		'Book' => array(
 			'className' => 'Book',
-			'foreignKey' => 'ISSN'
+			'foreignKey' => 'ISBN'
 
 		)
 	);
