@@ -9,9 +9,14 @@
 	<?php foreach ($books as $book): ?>
 	<tr>
 		<td><?php echo h($book['Book']['item_id']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($book['bookDetails']['title'], array('controller' => 'book_details', 'action' => 'view', $book['bookDetails']['id'])); ?>
-		</td>
+		<td><?php
+                
+                 
+                  echo $this->Html->link($book['BookDetail']['ISBN'], array('controller' => 'book_details', 'action' => 'view', $book['BookDetail']['ISBN']));
+                    
+                     ?>
+		
+                </td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $book['Book']['item_id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $book['Book']['item_id'])); ?>

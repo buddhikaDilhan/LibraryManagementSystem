@@ -24,6 +24,8 @@ class BooksController extends AppController {
 	public function index() {
 		$this->Book->recursive = 0;
 		$this->set('books', $this->Paginator->paginate());
+                $this->set('bookDetails', $this->Book->BookDetail->find('list'));
+
 	}
 
 /**
@@ -37,6 +39,7 @@ class BooksController extends AppController {
 		if (!$this->Book->exists($id)) {
 			throw new NotFoundException(__('Invalid book'));
 		}
+                 $this->Book->recursive=1;
 		$options = array('conditions' => array('Book.' . $this->Book->primaryKey => $id));
 		$this->set('book', $this->Book->find('first', $options));
 	}
@@ -56,8 +59,8 @@ class BooksController extends AppController {
 				$this->Session->setFlash(__('The book could not be saved. Please, try again.'));
 			}
 		}
-		$bookDetails = $this->Book->BookDetail->find('list');
-		$this->set(compact('bookDetails'));
+	//	$bookDetails = $this->Book->BookDetail->find('list');
+	//	$this->set(compact('bookDetails'));
 	}
 
 /**

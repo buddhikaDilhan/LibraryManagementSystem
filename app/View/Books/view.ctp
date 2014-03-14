@@ -1,14 +1,19 @@
 <div class="books view">
 <h2><?php echo __('Book'); ?></h2>
 	<dl>
-		<dt><?php echo __('Item Id'); ?></dt>
+		<dt><?php 
+                echo (json_encode($book));
+                echo __('Item Id'); ?></dt>
 		<dd>
 			<?php echo h($book['Book']['item_id']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Book Details'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($book['bookDetails']['title'], array('controller' => 'book_details', 'action' => 'view', $book['bookDetails']['id'])); ?>
+			<?php 
+                        echo $this->Html->link($book['BookDetail']['title'], array('controller' => 'book_details', 'action' => 'view', $book['BookDetail']['ISBN']));
+                    
+                        ?>
 			&nbsp;
 		</dd>
 	</dl>

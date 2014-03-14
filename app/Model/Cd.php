@@ -8,6 +8,7 @@ App::uses('AppModel', 'Model');
  */
 class Cd extends AppModel {
 
+    var $name='Cd';
 /**
  * Primary key field
  *
@@ -29,8 +30,16 @@ class Cd extends AppModel {
  */
 	public $validate = array(
 		'item_id' => array(
-			'25_24' => array(
-				'rule' => array('25 24'),
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -57,15 +66,6 @@ class Cd extends AppModel {
  *
  * @var array
  */
-	public $hasOne = array(
-		'Item' => array(
-			'className' => 'Item',
-			'foreignKey' => 'id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);
 
 /**
  * belongsTo associations
@@ -73,12 +73,13 @@ class Cd extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'CeDetails' => array(
-			'className' => 'CdDetails',
-			'foreignKey' => 'ISSN',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+		'CdDetail' => array(
+			'className' => 'CdDetail',
+			'foreignKey' => 'ISSN'
+		),
+                'Item' => array(
+			'className' => 'Item',
+			'foreignKey' => 'item_id',
 		)
 	);
 }

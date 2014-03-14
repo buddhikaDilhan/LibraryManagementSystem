@@ -3,7 +3,8 @@
 	<fieldset>
 		<legend><?php echo __('Add Cd'); ?></legend>
 	<?php
-		echo $this->Form->input('ISSN');
+		echo $this->Form->input('item_id', array('type' => 'int'));
+                echo $this->Form->input('ISSN');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

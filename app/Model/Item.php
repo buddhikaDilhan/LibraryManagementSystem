@@ -5,7 +5,24 @@ App::uses('AppModel', 'Model');
  *
  */
 class Item extends AppModel {
-
+    var $name='Item';
+        /**
+ * hasOne associations
+ *
+ * @var array
+ */
+	public $hasOne = array(
+		'Cd' => array(
+			'className' => 'Cd',
+			'foreignKey' => 'ISSN',
+		),
+            
+		'Book' => array(
+			'className' => 'Book',
+			'foreignKey' => 'ISBN',
+		)
+	
+	);
 /**
  * Display field
  *
@@ -38,4 +55,5 @@ class Item extends AppModel {
 			),
 		),
 	);
+       
 }

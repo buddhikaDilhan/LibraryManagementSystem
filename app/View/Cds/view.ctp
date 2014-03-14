@@ -1,14 +1,19 @@
 <div class="cds view">
 <h2><?php echo __('Cd'); ?></h2>
 	<dl>
-		<dt><?php echo __('Item Id'); ?></dt>
+            <dt><?php 
+                //echo (json_encode($cd));
+                  echo __('Item Id'); ?></dt>
 		<dd>
 			<?php echo h($cd['Cd']['item_id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Ce Details'); ?></dt>
+		<dt><?php echo __('Cd Details'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($cd['CeDetails']['title'], array('controller' => 'cd_details', 'action' => 'view', $cd['CeDetails']['id'])); ?>
+			<?php 
+                        echo $this->Html->link($cd['CdDetail']['title'], array('controller' => 'cd_details', 'action' => 'view', $cd['CdDetail']['ISSN']));
+                        echo h($cd['Cd']['ISSN']);
+                        ?>
 			&nbsp;
 		</dd>
 	</dl>

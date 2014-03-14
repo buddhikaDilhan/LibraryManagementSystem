@@ -5,7 +5,7 @@ App::uses('AppModel', 'Model');
  *
  */
 class CdDetail extends AppModel {
-
+var $name='CdDetail';
 /**
  * Primary key field
  *
@@ -19,7 +19,18 @@ class CdDetail extends AppModel {
  * @var string
  */
 	public $displayField = 'title';
+        /**
+ * hasOne associations
+ *
+ * @var array
+ */
+	public $hasOne = array(
+		'Cd' => array(
+			'className' => 'Cd',
+			'foreignKey' => 'ISSN'
 
+		)
+	);
 /**
  * Validation rules
  *
@@ -27,8 +38,16 @@ class CdDetail extends AppModel {
  */
 	public $validate = array(
 		'ISSN' => array(
-			'25_24' => array(
-				'rule' => array('25 24'),
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

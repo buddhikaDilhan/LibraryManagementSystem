@@ -75,6 +75,7 @@ class BookDetailsController extends AppController {
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The book detail could not be saved. Please, try again.'));
+                       
 			}
 		} else {
 			$options = array('conditions' => array('BookDetail.' . $this->BookDetail->primaryKey => $id));

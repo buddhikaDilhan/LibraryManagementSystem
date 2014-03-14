@@ -3,7 +3,8 @@
 	<fieldset>
 		<legend><?php echo __('Add Cd Detail'); ?></legend>
 	<?php
-		echo $this->Form->input('title');
+		echo $this->Form->input('ISSN', array('type' => 'int'));
+                echo $this->Form->input('title');
 		echo $this->Form->input('edition');
 		echo $this->Form->input('publisher');
 		echo $this->Form->input('category');

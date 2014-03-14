@@ -3,6 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('Add Book'); ?></legend>
 	<?php
+                echo $this->Form->input('item_id', array('type' => 'int'));
 		echo $this->Form->input('ISBN');
 	?>
 	</fieldset>

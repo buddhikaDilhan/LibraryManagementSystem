@@ -37,8 +37,10 @@ class CdsController extends AppController {
 		if (!$this->Cd->exists($id)) {
 			throw new NotFoundException(__('Invalid cd'));
 		}
+                $this->Cd->recursive=1;
 		$options = array('conditions' => array('Cd.' . $this->Cd->primaryKey => $id));
 		$this->set('cd', $this->Cd->find('first', $options));
+                
 	}
 
 /**
@@ -56,8 +58,8 @@ class CdsController extends AppController {
 				$this->Session->setFlash(__('The cd could not be saved. Please, try again.'));
 			}
 		}
-		$ceDetails = $this->Cd->CeDetail->find('list');
-		$this->set(compact('ceDetails'));
+	//	$cdDetails = $this->Cd->CdDetail->find('list');
+	//	$this->set(compact('cdDetails'));
 	}
 
 /**
@@ -82,8 +84,8 @@ class CdsController extends AppController {
 			$options = array('conditions' => array('Cd.' . $this->Cd->primaryKey => $id));
 			$this->request->data = $this->Cd->find('first', $options);
 		}
-		$ceDetails = $this->Cd->CeDetail->find('list');
-		$this->set(compact('ceDetails'));
+		$cdDetails = $this->Cd->CdDetail->find('list');
+		$this->set(compact('cdDetails'));
 	}
 
 /**

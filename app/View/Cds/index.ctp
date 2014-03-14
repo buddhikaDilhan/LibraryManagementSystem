@@ -10,7 +10,10 @@
 	<tr>
 		<td><?php echo h($cd['Cd']['item_id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($cd['CeDetails']['title'], array('controller' => 'cd_details', 'action' => 'view', $cd['CeDetails']['id'])); ?>
+			<?php
+                        echo $this->Html->link($cd['CdDetail']['title'], array('controller' => 'cd_details', 'action' => 'view', $cd['CdDetail']['ISSN'])); 
+                        
+                        ?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $cd['Cd']['item_id'])); ?>
